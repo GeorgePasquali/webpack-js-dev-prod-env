@@ -8,12 +8,12 @@ module.exports = {
   ],
 
   output: { // simulate the existance of this file in the dir ./src (For dev server)
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'src'),
     publicPath: "/",
-    filename: 'myLib.bundle.js'
+    filename: `${libraryName}.bundle.js`
   },
 
-  devtool: "sourcemap",
+  devtool: "inline-sourcemap",
 
   target: "web", // enum
   // the environment in which the bundle should run
