@@ -1,16 +1,15 @@
 import path from 'path';
-
-const libraryName = "myLib"; // Think of replacing this with the name inside package.json
+import PROJECT_CONFIG from "./package.json";
 
 module.exports = {
   entry: [
-    path.resolve(__dirname, 'src/index')
+    path.resolve(__dirname, PROJECT_CONFIG.main)
   ],
 
   output: { // simulate the existance of this file in the dir ./src (For dev server)
     path: path.resolve(__dirname, 'src'),
     publicPath: "/",
-    filename: `${libraryName}.bundle.js`
+    filename: `${PROJECT_CONFIG.name}.bundle.js`
   },
 
   devtool: "inline-sourcemap",
@@ -20,11 +19,14 @@ module.exports = {
   // changes chunk loading behavior and available modules
 
   module: {
-    rules: [{
-        test: /\.js$/,
+    rules: [
+
+      {
+        test: /\.jsx$/,
         exclude: /node_modules/,
         loader: "babel-loader"
       },
+
       {
         test: /\.scss$/,
         use: [{
@@ -41,6 +43,7 @@ module.exports = {
           }
         }]
       },
+
       {
         test: /\.css$/,
         use: [{
@@ -54,6 +57,7 @@ module.exports = {
           }
         ]
       }
+
     ]
   }
 

@@ -1,6 +1,7 @@
 // Entry in webpack
 
-import './index.css';
+import './styles/index.scss';
+import * as Utils from "./library/exampleHelperClass"
 
 export default class testClass {
 
@@ -10,6 +11,10 @@ export default class testClass {
 
   sayHello() {
     console.log("I am an ES6 class");// eslint-disable-line
+  }
+
+  returnSomeSum(){
+    console.log(Utils.sum(5,7));// eslint-disable-line
   }
 
 }

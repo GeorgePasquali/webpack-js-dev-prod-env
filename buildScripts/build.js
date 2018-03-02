@@ -11,6 +11,8 @@ console.log(chalk.blue('Generating minified bundle for production. This will tak
 
 let compiler = webpack(webpackConfig);
 
+// Create an index.html that can open our production build
+
 compiler.run((err, stats) => {
   if (err) { // so a fatal error occurred. Stop here.
     console.log(chalk.red(err));
@@ -28,7 +30,7 @@ compiler.run((err, stats) => {
     jsonStats.warnings.map(warning => console.log(chalk.yellow(warning)));
   }
 
-  console.log(`Webpack stats: ${stats}`); // Here the stats get displayed
+  console.log(chalk.cyanBright(`Webpack stats: ${stats}`)); // Here the stats get displayed
 
   // if we got this far, the build succeeded.
   console.log(chalk.green('Your app has been built for production and written to /dist!'));

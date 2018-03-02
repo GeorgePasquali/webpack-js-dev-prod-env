@@ -3,6 +3,9 @@ import path from 'path';
 import open from 'open';
 import webpack from 'webpack';
 import config from '../webpack.config.dev'; // eslint-disable-line
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import LiveReloadPlugin from 'webpack-livereload-plugin';
+
 
 /* eslint-disable no-console */
 
@@ -12,6 +15,21 @@ process.env.NODE_ENV = 'development'; // this assures the Babel dev config doesn
 const port = 3000;
 const app = express();
 const compiler = webpack(config);
+
+// Create an index.html that can open our production build
+compiler.apply(
+  new HtmlWebpackPlugin({
+    template: "./static/template.html",
+    filename: "./index.html"
+  })
+)
+
+compiler.apply( // This plugin injects a script tag pointing to the livereload JS Which refreshes our page when we make a change in some src file.
+  new LiveReloadPlugin({
+    hostname: "localhost",
+    appendScriptTag: true
+  })
+)
 
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
