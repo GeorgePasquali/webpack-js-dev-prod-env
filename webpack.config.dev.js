@@ -9,7 +9,9 @@ module.exports = {
   output: { // simulate the existance of this file in the dir ./src (For dev server)
     path: path.resolve(__dirname, 'src'),
     publicPath: "/",
-    filename: `${PROJECT_CONFIG.name}.bundle.js`
+    filename: `${PROJECT_CONFIG.name}.bundle.js`,
+    library: PROJECT_CONFIG.module,
+    libraryTarget:"umd"
   },
 
   devtool: "inline-sourcemap",

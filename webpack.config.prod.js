@@ -23,7 +23,7 @@ export default {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: `${PROJECT_CONFIG.name}-${PROJECT_CONFIG.version}.bundle.js`,
-    library: PROJECT_CONFIG.name,
+    library: PROJECT_CONFIG.module,
     libraryTarget:"umd"
   },
 
@@ -32,6 +32,10 @@ export default {
    * It is slower, but ideal for production builds
    */
   devtool: "source-map",
+
+  optimization: {
+    minimize: false, // MAKE TRUE FOR PRODUCTION
+  },
 
 
   ////////////// MODULE RULES ////////////////

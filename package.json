@@ -1,5 +1,6 @@
 {
   "name": "example-lib-umd",
+  "module": "ExampleClass",
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",

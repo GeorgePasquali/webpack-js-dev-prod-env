@@ -2,8 +2,7 @@
 
 import './styles/index.scss';
 import * as Utils from "./library/exampleHelperClass"
-
-export default class testClass {
+class testClass {
 
   constructor() {
     console.log("class instance created");// eslint-disable-line
@@ -18,3 +17,5 @@ export default class testClass {
   }
 
 }
+
+module.exports = testClass
