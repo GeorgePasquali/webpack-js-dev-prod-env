@@ -12,7 +12,7 @@
     "test": "echo \"Pretend That We Are Testing...\"",
     "security-check": "nsp check",
     "clean-dist": "rimraf ./dist && mkdir dist",
-    "prebuild": "npm-run-all clean-dist test lint",
+    "prebuild": "npm-run-all security-check clean-dist test lint",
     "build": "babel-node buildScripts/build.js",
     "postbuild": "babel-node buildScripts/distServer.js"
   },

@@ -5,7 +5,7 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from "html-webpack-plugin";
 
 const extractSass = new ExtractTextPlugin({
-  filename: `${PROJECT_CONFIG.name}.styles.css`,
+  filename: `${PROJECT_CONFIG.name}-${PROJECT_CONFIG.version}.styles.css`,
   disable: process.env.NODE_ENV === "development"
 });
 
@@ -39,7 +39,7 @@ export default {
 
     // Enables ES6 support for the Project
     rules: [{
-        test: /\.jsx$/,
+        test: /\.js$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader"

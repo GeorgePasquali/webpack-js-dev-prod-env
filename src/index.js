@@ -10,7 +10,7 @@ export default class testClass {
   }
 
   sayHello() {
-    console.log("I am an ES6 class");// eslint-disable-line
+    console.log("I am an ES6 new class");// eslint-disable-line
   }
 
   returnSomeSum(){
